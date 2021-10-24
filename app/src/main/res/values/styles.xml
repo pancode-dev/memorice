@@ -9,4 +9,5 @@
         <item name="android:shadowDy">@integer/title_shadow_size</item>
         <item name="android:shadowRadius">@integer/title_shadow_size</item>
     </style>
+
 </resources>
