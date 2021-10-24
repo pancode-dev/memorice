@@ -9,4 +9,23 @@ Simple pair-matching game to practice material design use.
 - Customized Theme parent and colors for both Light and Dark themes.
 - Use of Material Design Components for Views.
 - Use of custom Resources (Styles, Dimens, Integers).
+- Switch between Light and Dark Theme on Icon Click.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
