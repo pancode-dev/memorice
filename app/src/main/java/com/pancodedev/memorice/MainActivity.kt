@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.pancodedev.memorice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setThemeIcon()
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding.imgThemeSwitchIcon.setOnClickListener {
             switchTheme()
         }
+
     }
 
     /**
@@ -40,5 +42,10 @@ class MainActivity : AppCompatActivity() {
                 else -> AppCompatDelegate.MODE_NIGHT_YES
             }
         setThemeIcon()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

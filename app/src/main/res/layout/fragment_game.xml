@@ -1,14 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:colorBackground"
     tools:context=".GameFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image01"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image05"
+        app:layout_constraintEnd_toStartOf="@+id/card_image02"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-</FrameLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image02"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image06"
+        app:layout_constraintEnd_toStartOf="@+id/card_image03"
+        app:layout_constraintStart_toEndOf="@+id/card_image01"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image03"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image07"
+        app:layout_constraintEnd_toStartOf="@+id/card_image04"
+        app:layout_constraintStart_toEndOf="@+id/card_image02"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image04"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image08"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_image03"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image05"
+        style="@style/Widget.Memorice.CardView"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/card_image09"
+        app:layout_constraintEnd_toStartOf="@+id/card_image06"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_image01" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image06"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image10"
+        app:layout_constraintEnd_toStartOf="@+id/card_image07"
+        app:layout_constraintStart_toEndOf="@+id/card_image05"
+        app:layout_constraintTop_toBottomOf="@+id/card_image02" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image07"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image11"
+        app:layout_constraintEnd_toStartOf="@+id/card_image08"
+        app:layout_constraintStart_toEndOf="@+id/card_image06"
+        app:layout_constraintTop_toBottomOf="@+id/card_image03" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image08"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_image07"
+        app:layout_constraintTop_toBottomOf="@+id/card_image04" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image09"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image13"
+        app:layout_constraintEnd_toStartOf="@+id/card_image10"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_image05" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image10"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image14"
+        app:layout_constraintEnd_toStartOf="@+id/card_image11"
+        app:layout_constraintStart_toEndOf="@+id/card_image09"
+        app:layout_constraintTop_toBottomOf="@+id/card_image06" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image11"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image15"
+        app:layout_constraintEnd_toStartOf="@+id/card_image12"
+        app:layout_constraintStart_toEndOf="@+id/card_image10"
+        app:layout_constraintTop_toBottomOf="@+id/card_image07" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image12"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toTopOf="@+id/card_image16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_image11"
+        app:layout_constraintTop_toBottomOf="@+id/card_image08" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image13"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card_image14"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_image09" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image14"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card_image15"
+        app:layout_constraintStart_toEndOf="@+id/card_image13"
+        app:layout_constraintTop_toBottomOf="@+id/card_image10" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image15"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card_image16"
+        app:layout_constraintStart_toEndOf="@+id/card_image14"
+        app:layout_constraintTop_toBottomOf="@+id/card_image11" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_image16"
+        style="@style/Widget.Memorice.CardView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_image15"
+        app:layout_constraintTop_toBottomOf="@+id/card_image12" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
