@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.ExampleApp.TextView.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:minHeight">@dimen/min_text_height</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline3</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:shadowColor">?attr/colorOnPrimary</item>
+        <item name="android:shadowDx">@integer/title_shadow_size</item>
+        <item name="android:shadowDy">@integer/title_shadow_size</item>
+        <item name="android:shadowRadius">@integer/title_shadow_size</item>
+    </style>
+</resources>
