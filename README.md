@@ -1,6 +1,6 @@
 # memorice
 
-Simple memorice game to practice material design use.
+Simple pair-matching game to practice material design use.
 
 ### What's been used
 
