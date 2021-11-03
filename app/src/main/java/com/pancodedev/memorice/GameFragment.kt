@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import com.pancodedev.memorice.databinding.FragmentGameBinding
 
 
@@ -20,7 +19,6 @@ import com.pancodedev.memorice.databinding.FragmentGameBinding
 class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +36,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fillCards(getIconsList())
         setupOnClickListeners()
     }
 
@@ -120,6 +119,56 @@ class GameFragment : Fragment() {
 
         binding.cardImage16.setOnClickListener {
             turnoverCard(binding.cardImage16, binding.imgIcon16)
+        }
+    }
+
+    /**
+     * returns a list of icon resource IDs.
+     */
+    private fun getIconsList(): MutableList<Int> {
+        var list = mutableListOf<Int>()
+
+        list.add(R.drawable.ic_bike_24)
+        list.add(R.drawable.ic_cake_24)
+        list.add(R.drawable.ic_car_24)
+        list.add(R.drawable.ic_football_24)
+        list.add(R.drawable.ic_gamepad_24)
+        list.add(R.drawable.ic_lightbulb_24)
+        list.add(R.drawable.ic_moon_24)
+        list.add(R.drawable.ic_sun_24)
+        list.shuffle()
+
+        return list
+    }
+
+    /**
+     * Randomly fills ImageViews inside cards with a list of icons.
+     */
+    private fun fillCards(icons: MutableList<Int>) {
+        var imageViews = mutableListOf<ImageView>()
+
+        imageViews.add(binding.imgIcon01)
+        imageViews.add(binding.imgIcon02)
+        imageViews.add(binding.imgIcon03)
+        imageViews.add(binding.imgIcon04)
+        imageViews.add(binding.imgIcon05)
+        imageViews.add(binding.imgIcon06)
+        imageViews.add(binding.imgIcon07)
+        imageViews.add(binding.imgIcon08)
+        imageViews.add(binding.imgIcon09)
+        imageViews.add(binding.imgIcon10)
+        imageViews.add(binding.imgIcon11)
+        imageViews.add(binding.imgIcon12)
+        imageViews.add(binding.imgIcon13)
+        imageViews.add(binding.imgIcon14)
+        imageViews.add(binding.imgIcon15)
+        imageViews.add(binding.imgIcon16)
+
+        imageViews.shuffle()
+        icons.shuffle()
+
+        for(i in 0..15) {
+            imageViews[i].setImageResource(icons[i.floorDiv(2)])
         }
     }
 
