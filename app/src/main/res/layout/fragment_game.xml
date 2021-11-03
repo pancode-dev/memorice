@@ -15,7 +15,17 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed" >
+
+        <ImageView
+            android:id="@+id/img_icon01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image02"
@@ -24,7 +34,17 @@
         app:layout_constraintEnd_toStartOf="@+id/card_image03"
         app:layout_constraintStart_toEndOf="@+id/card_image01"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed" >
+
+        <ImageView
+            android:id="@+id/img_icon02"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image03"
@@ -33,7 +53,17 @@
         app:layout_constraintEnd_toStartOf="@+id/card_image04"
         app:layout_constraintStart_toEndOf="@+id/card_image02"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed" >
+
+        <ImageView
+            android:id="@+id/img_icon03"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image04"
@@ -42,7 +72,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/card_image03"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed" >
+
+        <ImageView
+            android:id="@+id/img_icon04"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image05"
@@ -52,7 +92,17 @@
         app:layout_constraintEnd_toStartOf="@+id/card_image06"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_image01" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image01" >
+
+        <ImageView
+            android:id="@+id/img_icon05"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image06"
@@ -60,7 +110,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image10"
         app:layout_constraintEnd_toStartOf="@+id/card_image07"
         app:layout_constraintStart_toEndOf="@+id/card_image05"
-        app:layout_constraintTop_toBottomOf="@+id/card_image02" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image02" >
+
+        <ImageView
+            android:id="@+id/img_icon06"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image07"
@@ -68,7 +128,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image11"
         app:layout_constraintEnd_toStartOf="@+id/card_image08"
         app:layout_constraintStart_toEndOf="@+id/card_image06"
-        app:layout_constraintTop_toBottomOf="@+id/card_image03" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image03" >
+
+        <ImageView
+            android:id="@+id/img_icon07"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image08"
@@ -76,7 +146,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/card_image07"
-        app:layout_constraintTop_toBottomOf="@+id/card_image04" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image04" >
+
+        <ImageView
+            android:id="@+id/img_icon08"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image09"
@@ -85,7 +165,17 @@
         app:layout_constraintEnd_toStartOf="@+id/card_image10"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_image05" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image05" >
+
+        <ImageView
+            android:id="@+id/img_icon09"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image10"
@@ -93,7 +183,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image14"
         app:layout_constraintEnd_toStartOf="@+id/card_image11"
         app:layout_constraintStart_toEndOf="@+id/card_image09"
-        app:layout_constraintTop_toBottomOf="@+id/card_image06" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image06" >
+
+        <ImageView
+            android:id="@+id/img_icon10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image11"
@@ -101,7 +201,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image15"
         app:layout_constraintEnd_toStartOf="@+id/card_image12"
         app:layout_constraintStart_toEndOf="@+id/card_image10"
-        app:layout_constraintTop_toBottomOf="@+id/card_image07" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image07" >
+
+        <ImageView
+            android:id="@+id/img_icon11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image12"
@@ -109,7 +219,17 @@
         app:layout_constraintBottom_toTopOf="@+id/card_image16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/card_image11"
-        app:layout_constraintTop_toBottomOf="@+id/card_image08" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image08" >
+
+        <ImageView
+            android:id="@+id/img_icon12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image13"
@@ -118,7 +238,17 @@
         app:layout_constraintEnd_toStartOf="@+id/card_image14"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_image09" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image09" >
+
+        <ImageView
+            android:id="@+id/img_icon13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image14"
@@ -126,7 +256,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/card_image15"
         app:layout_constraintStart_toEndOf="@+id/card_image13"
-        app:layout_constraintTop_toBottomOf="@+id/card_image10" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image10" >
+
+        <ImageView
+            android:id="@+id/img_icon14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image15"
@@ -134,7 +274,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/card_image16"
         app:layout_constraintStart_toEndOf="@+id/card_image14"
-        app:layout_constraintTop_toBottomOf="@+id/card_image11" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image11" >
+
+        <ImageView
+            android:id="@+id/img_icon15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image16"
@@ -142,7 +292,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/card_image15"
-        app:layout_constraintTop_toBottomOf="@+id/card_image12" />
+        app:layout_constraintTop_toBottomOf="@+id/card_image12" >
+
+        <ImageView
+            android:id="@+id/img_icon16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Icon"
+            android:visibility="gone"
+            android:src="@drawable/ic_moon_24"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

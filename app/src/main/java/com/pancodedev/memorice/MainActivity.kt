@@ -16,17 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /**
-     * Switches current Theme between Light/Dark Mode.
-     */
-    fun switchTheme() {
-        delegate.localNightMode =
-            when(delegate.localNightMode) {
-                AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
-                else -> AppCompatDelegate.MODE_NIGHT_YES
-            }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

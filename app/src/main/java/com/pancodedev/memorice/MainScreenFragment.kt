@@ -64,7 +64,7 @@ class MainScreenFragment : Fragment() {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragmentContainerView, GameFragment.newInstance(), "")
+            .replace(R.id.fragmentContainerView, GameFragment.newInstance(), "")
             .addToBackStack(null)
             .commit()
     }
@@ -72,7 +72,7 @@ class MainScreenFragment : Fragment() {
     /**
      * Switches current Theme between Light/Dark Mode.
      */
-    fun switchTheme() {
+    private fun switchTheme() {
         val delegate = (activity as AppCompatActivity).delegate
 
         delegate.localNightMode =

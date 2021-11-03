@@ -14,6 +14,12 @@
         <item name="android:layout_width">@dimen/card_size</item>
         <item name="android:layout_height">@dimen/card_size</item>
         <item name="android:layout_margin">12dp</item>
+        <item name="cardBackgroundColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:padding">8dp</item>
+        <item name="tint">?attr/colorOnSecondary</item>
     </style>
 
 </resources>
