@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.pancodedev.memorice.databinding.FragmentMainScreenBinding
 
 /**
@@ -24,7 +26,7 @@ class MainScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         return binding.root
@@ -35,6 +37,10 @@ class MainScreenFragment : Fragment() {
 
         binding.btnNewGame.setOnClickListener {
             callGameFragment()
+        }
+
+        binding.btnSwitchTheme.setOnClickListener {
+            switchTheme()
         }
     }
 
@@ -61,5 +67,18 @@ class MainScreenFragment : Fragment() {
             .add(R.id.fragmentContainerView, GameFragment.newInstance(), "")
             .addToBackStack(null)
             .commit()
+    }
+
+    /**
+     * Switches current Theme between Light/Dark Mode.
+     */
+    fun switchTheme() {
+        val delegate = (activity as AppCompatActivity).delegate
+
+        delegate.localNightMode =
+            when(delegate.localNightMode) {
+                AppCompatDelegate.MODE_NIGHT_YES -> AppCompatDelegate.MODE_NIGHT_NO
+                else -> AppCompatDelegate.MODE_NIGHT_YES
+            }
     }
 }
