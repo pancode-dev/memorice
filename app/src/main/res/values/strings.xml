@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Memorice</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_new_game_text">Jugar</string>
     <string name="btn_switch_theme_text">Cambiar Tema</string>
+    <string name="game_first_step_text">Presiona cualquier carta para revelar su imagen.</string>
+    <string name="game_second_step_text">Intenta encontrar el par de la imagen.</string>
+    <string name="game_pair_matches_text">¡Coinciden! :3. Ahora encuentra más pares.</string>
+    <string name="game_pair_does_not_match_text">No coinciden :( Intenta de nuevo.</string>
+    <string name="game_finished_text">¡¡¡FELICIDADES!!! Has encontrado todos los pares n.n</string>
+    <string name="turn_counter_text">Turnos: %d</string>
+    <string name="match_counter_text">Aciertos: %d/%d</string>
 </resources>

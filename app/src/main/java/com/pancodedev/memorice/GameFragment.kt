@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.MutableLiveData
 import com.pancodedev.memorice.databinding.FragmentGameBinding
 
 
@@ -17,8 +19,23 @@ import com.pancodedev.memorice.databinding.FragmentGameBinding
  * create an instance of this fragment.
  */
 class GameFragment : Fragment() {
+
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
+    private var cardList = mutableListOf<Pair<CardView, ImageView>>()
+
+    private var inGameText = MutableLiveData<String>()
+
+    private var firstCard: CardView? = null
+    private var firstIcon: ImageView? = null
+    private var secondCard: CardView? = null
+    private var secondIcon: ImageView? = null
+
+    private var matchedPairs = MutableLiveData(0)
+    private val totalPairs by lazy { cardList.size / 2 }
+
+    private var turnsPlayed = MutableLiveData(0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +53,29 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fillCards(getIconsList())
-        setupOnClickListeners()
+        fillCardList()
+        fillCardsWithIcons(getIconsList())
+        setupCardsOnClickListeners()
+        refreshTurnCounter(turnsPlayed.value!!)
+        refreshMatchCounter(matchedPairs.value!!)
+
+        binding.btnContinue.setOnClickListener {
+            resetBoard()
+            enableCards()
+            binding.btnContinue.visibility = Button.GONE
+        }
+
+        inGameText.observe(viewLifecycleOwner, {
+            binding.tvInGameText.text = it
+        })
+
+        turnsPlayed.observe(viewLifecycleOwner, {
+            refreshTurnCounter(it)
+        })
+
+        matchedPairs.observe(viewLifecycleOwner, {
+            refreshMatchCounter(it)
+        })
     }
 
     override fun onDestroy() {
@@ -56,70 +94,43 @@ class GameFragment : Fragment() {
         fun newInstance() = GameFragment()
     }
 
-    private fun setupOnClickListeners() {
-        binding.cardImage01.setOnClickListener {
-            turnoverCard(binding.cardImage01, binding.imgIcon01)
-        }
+    private fun refreshTurnCounter(turnsPlayed: Int) {
+        binding.tvTurnCounter.text = String.format(getString(R.string.turn_counter_text), turnsPlayed)
+    }
 
-        binding.cardImage02.setOnClickListener {
-            turnoverCard(binding.cardImage02, binding.imgIcon02)
-        }
+    private fun refreshMatchCounter(matchedPairs: Int) {
+        binding.tvMatchCounter.text = String.format(getString(R.string.match_counter_text), matchedPairs, totalPairs)
+    }
 
-        binding.cardImage03.setOnClickListener {
-            turnoverCard(binding.cardImage03, binding.imgIcon03)
+    private fun setupCardsOnClickListeners() {
+        cardList.forEach { pair ->
+            pair.first.setOnClickListener {
+                turnoverCard(pair.first, pair.second)
+                playGame(pair.first, pair.second)
+            }
         }
+    }
 
-        binding.cardImage04.setOnClickListener {
-            turnoverCard(binding.cardImage04, binding.imgIcon04)
-        }
-
-        binding.cardImage05.setOnClickListener {
-            turnoverCard(binding.cardImage05, binding.imgIcon05)
-        }
-
-        binding.cardImage06.setOnClickListener {
-            turnoverCard(binding.cardImage06, binding.imgIcon06)
-        }
-
-        binding.cardImage07.setOnClickListener {
-            turnoverCard(binding.cardImage07, binding.imgIcon07)
-        }
-
-        binding.cardImage08.setOnClickListener {
-            turnoverCard(binding.cardImage08, binding.imgIcon08)
-        }
-
-        binding.cardImage09.setOnClickListener {
-            turnoverCard(binding.cardImage09, binding.imgIcon09)
-        }
-
-        binding.cardImage10.setOnClickListener {
-            turnoverCard(binding.cardImage10, binding.imgIcon10)
-        }
-
-        binding.cardImage11.setOnClickListener {
-            turnoverCard(binding.cardImage11, binding.imgIcon11)
-        }
-
-        binding.cardImage12.setOnClickListener {
-            turnoverCard(binding.cardImage12, binding.imgIcon12)
-        }
-
-        binding.cardImage13.setOnClickListener {
-            turnoverCard(binding.cardImage13, binding.imgIcon13)
-        }
-
-        binding.cardImage14.setOnClickListener {
-            turnoverCard(binding.cardImage14, binding.imgIcon14)
-        }
-
-        binding.cardImage15.setOnClickListener {
-            turnoverCard(binding.cardImage15, binding.imgIcon15)
-        }
-
-        binding.cardImage16.setOnClickListener {
-            turnoverCard(binding.cardImage16, binding.imgIcon16)
-        }
+    /**
+     * Fills [GameFragment.cardList] with CardView/ImageView Pairs.
+     */
+    private fun fillCardList() {
+        cardList.add(Pair(binding.cardImage01, binding.imgIcon01))
+        cardList.add(Pair(binding.cardImage02, binding.imgIcon02))
+        cardList.add(Pair(binding.cardImage03, binding.imgIcon03))
+        cardList.add(Pair(binding.cardImage04, binding.imgIcon04))
+        cardList.add(Pair(binding.cardImage05, binding.imgIcon05))
+        cardList.add(Pair(binding.cardImage06, binding.imgIcon06))
+        cardList.add(Pair(binding.cardImage07, binding.imgIcon07))
+        cardList.add(Pair(binding.cardImage08, binding.imgIcon08))
+        cardList.add(Pair(binding.cardImage09, binding.imgIcon09))
+        cardList.add(Pair(binding.cardImage10, binding.imgIcon10))
+        cardList.add(Pair(binding.cardImage11, binding.imgIcon11))
+        cardList.add(Pair(binding.cardImage12, binding.imgIcon12))
+        cardList.add(Pair(binding.cardImage13, binding.imgIcon13))
+        cardList.add(Pair(binding.cardImage14, binding.imgIcon14))
+        cardList.add(Pair(binding.cardImage15, binding.imgIcon15))
+        cardList.add(Pair(binding.cardImage16, binding.imgIcon16))
     }
 
     /**
@@ -142,33 +153,19 @@ class GameFragment : Fragment() {
     }
 
     /**
-     * Randomly fills ImageViews inside cards with a list of icons.
+     * Randomly fills [GameFragment.cardList] with icons.
      */
-    private fun fillCards(icons: MutableList<Int>) {
-        var imageViews = mutableListOf<ImageView>()
-
-        imageViews.add(binding.imgIcon01)
-        imageViews.add(binding.imgIcon02)
-        imageViews.add(binding.imgIcon03)
-        imageViews.add(binding.imgIcon04)
-        imageViews.add(binding.imgIcon05)
-        imageViews.add(binding.imgIcon06)
-        imageViews.add(binding.imgIcon07)
-        imageViews.add(binding.imgIcon08)
-        imageViews.add(binding.imgIcon09)
-        imageViews.add(binding.imgIcon10)
-        imageViews.add(binding.imgIcon11)
-        imageViews.add(binding.imgIcon12)
-        imageViews.add(binding.imgIcon13)
-        imageViews.add(binding.imgIcon14)
-        imageViews.add(binding.imgIcon15)
-        imageViews.add(binding.imgIcon16)
-
-        imageViews.shuffle()
+    private fun fillCardsWithIcons(icons: MutableList<Int>) {
         icons.shuffle()
+        cardList.shuffle()
 
-        for(i in 0..15) {
-            imageViews[i].setImageResource(icons[i.floorDiv(2)])
+        for(i in 0 until cardList.size) {
+            val iconIndex = i.floorDiv(2)
+
+            cardList[i].second.apply {
+                setImageResource(icons[iconIndex])
+                tag = iconIndex
+            }
         }
     }
 
@@ -187,6 +184,76 @@ class GameFragment : Fragment() {
             icon.visibility = ImageView.GONE
             requireContext().theme.resolveAttribute(R.attr.colorPrimary, cardColor, true)
             card.setCardBackgroundColor(cardColor.data)
+        }
+    }
+
+    /**
+     * plays the next step in the game whenever called.
+     */
+    private fun playGame(card: CardView, icon: ImageView) {
+        turnsPlayed.value = turnsPlayed.value!! + 1
+        if (firstCard == null) {
+            firstCard = card
+            firstIcon = icon
+            inGameText.value = getString(R.string.game_second_step_text)
+        } else {
+            secondCard = card
+            secondIcon = icon
+
+            if(firstIcon!!.tag == secondIcon!!.tag) {
+                matchedPairs.value = matchedPairs.value!! + 1
+                firstCard!!.tag = Constants.CARD_MATCHED
+                secondCard!!.tag = Constants.CARD_MATCHED
+                firstCard!!.isClickable = false
+                secondCard!!.isClickable = false
+                firstCard = null
+                firstIcon = null
+                secondCard = null
+                secondIcon = null
+
+                if(matchedPairs.value!! >= totalPairs)
+                    inGameText.value = getString(R.string.game_finished_text)
+                else
+                    inGameText.value = getString(R.string.game_pair_matches_text)
+            } else {
+                inGameText.value = getString(R.string.game_pair_does_not_match_text)
+                disableCards()
+                binding.btnContinue.visibility = Button.VISIBLE
+            }
+
+        }
+    }
+
+    /**
+     * resets variables when pair doesn't match.
+     */
+    private fun resetBoard() {
+        turnoverCard(firstCard!!, firstIcon!!)
+        turnoverCard(secondCard!!, secondIcon!!)
+        firstCard = null
+        firstIcon = null
+        secondCard = null
+        secondIcon = null
+        binding.btnContinue.visibility = Button.GONE
+        inGameText.value = getString(R.string.game_first_step_text)
+    }
+
+    /**
+     * Disables cards from being clicked.
+     */
+    private fun disableCards() {
+        cardList.forEach {
+            it.first.isClickable = false
+        }
+    }
+
+    /**
+     * enables unmatched cards to be clicked.
+     */
+    private fun enableCards() {
+        cardList.forEach {
+            if(it.first.tag != Constants.CARD_MATCHED)
+                it.first.isClickable = true
         }
     }
 }
