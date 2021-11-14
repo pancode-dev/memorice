@@ -11,6 +11,7 @@ Simple pair-matching game to practice material design use.
 - Use of custom Resources (Styles, Dimens, Integers).
 - Switch between Day and Night Mode.
 - Game related logic and View manipulation.
+- Material Design AlertDialog.
 
 
 
