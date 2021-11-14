@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:colorBackground"
-    tools:context=".GameFragment">
+    android:clickable="true"
+    tools:context=".GameFragment"
+    android:focusable="true">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_turn_counter"
+        style="@style/Widget.Memorice.TextView.InGameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -20,6 +23,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_match_counter"
+        style="@style/Widget.Memorice.TextView.InGameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -311,12 +315,12 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_in_game_text"
-        android:layout_width="wrap_content"
+        style="@style/Widget.Memorice.TextView.InGameText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="@string/game_first_step_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_image14" />
 
     <com.google.android.material.button.MaterialButton
@@ -324,11 +328,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Continuar"
+        android:text="@string/btn_continue_text"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_in_game_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_new_game_text"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_in_game_text"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

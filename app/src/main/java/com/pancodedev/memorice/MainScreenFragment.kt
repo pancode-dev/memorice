@@ -64,7 +64,7 @@ class MainScreenFragment : Fragment() {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragmentContainerView, GameFragment.newInstance(), "")
+            .add(R.id.fragmentContainerView, GameFragment.newInstance(), GameFragment.TAG)
             .addToBackStack(null)
             .commit()
     }

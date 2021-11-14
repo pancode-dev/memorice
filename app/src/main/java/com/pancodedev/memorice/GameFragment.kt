@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.activity.addCallback
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pancodedev.memorice.databinding.FragmentGameBinding
 
 
@@ -40,6 +42,17 @@ class GameFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        requireActivity().onBackPressedDispatcher.addCallback {
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(R.string.game_back_dialog_text)
+                .setPositiveButton(R.string.game_back_dialog_positive_button_text) { _, _ ->
+                    parentFragmentManager.popBackStack()
+                }
+                .setNegativeButton(R.string.game_back_dialog_negative_button_text) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
 
     override fun onCreateView(
@@ -65,6 +78,20 @@ class GameFragment : Fragment() {
             binding.btnContinue.visibility = Button.GONE
         }
 
+        binding.btnNewGame.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+
+            fragmentManager.popBackStack()
+
+            fragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainerView, GameFragment.newInstance(), GameFragment.TAG)
+                .addToBackStack(null)
+                .commit()
+
+            binding.btnNewGame.visibility = Button.GONE
+        }
+
         inGameText.observe(viewLifecycleOwner, {
             binding.tvInGameText.text = it
         })
@@ -83,7 +110,11 @@ class GameFragment : Fragment() {
         _binding = null
     }
 
+
+
     companion object {
+        const val TAG = "FRAGMENT_GAME"
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -92,6 +123,7 @@ class GameFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() = GameFragment()
+
     }
 
     private fun refreshTurnCounter(turnsPlayed: Int) {
@@ -211,9 +243,10 @@ class GameFragment : Fragment() {
                 secondCard = null
                 secondIcon = null
 
-                if(matchedPairs.value!! >= totalPairs)
+                if(matchedPairs.value!! >= totalPairs) {
                     inGameText.value = getString(R.string.game_finished_text)
-                else
+                    binding.btnNewGame.visibility = Button.VISIBLE
+                } else
                     inGameText.value = getString(R.string.game_pair_matches_text)
             } else {
                 inGameText.value = getString(R.string.game_pair_does_not_match_text)

@@ -6,7 +6,12 @@
     <string name="game_second_step_text">Intenta encontrar el par de la imagen.</string>
     <string name="game_pair_matches_text">¡Coinciden! :3. Ahora encuentra más pares.</string>
     <string name="game_pair_does_not_match_text">No coinciden :( Intenta de nuevo.</string>
-    <string name="game_finished_text">¡¡¡FELICIDADES!!! Has encontrado todos los pares n.n</string>
+    <string name="game_finished_text">¡¡¡FELICIDADES!!! Has encontrado todos los pares n.n
+        \nPresiona el botón para jugar de nuevo</string>
     <string name="turn_counter_text">Turnos: %d</string>
     <string name="match_counter_text">Aciertos: %d/%d</string>
+    <string name="btn_continue_text">Continuar</string>
+    <string name="game_back_dialog_text">Si vuelves a la pantalla principal tu progreso se perderá. ¿Estás seguro?</string>
+    <string name="game_back_dialog_positive_button_text">Salir</string>
+    <string name="game_back_dialog_negative_button_text">Seguir Jugando</string>
 </resources>
