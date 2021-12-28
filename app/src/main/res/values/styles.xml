@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Memorice.TextView.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:minHeight">@dimen/min_text_height</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline3</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:shadowColor">?attr/colorOnPrimary</item>
+        <item name="android:shadowDx">@integer/title_shadow_size</item>
+        <item name="android:shadowDy">@integer/title_shadow_size</item>
+        <item name="android:shadowRadius">@integer/title_shadow_size</item>
+    </style>
+
+    <style name="Widget.Memorice.TextView.InGameText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="Widget.Memorice.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">@dimen/card_size</item>
+        <item name="android:layout_height">@dimen/card_size</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="cardBackgroundColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:padding">8dp</item>
+        <item name="tint">?attr/colorOnSecondary</item>
+    </style>
+
+</resources>
